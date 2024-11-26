@@ -1,0 +1,16 @@
+<div *ngFor="let residences of listResidences">
+    <li>{{residences}}</li>
+    <button (click)="showadress(residences)">showlocation</button>
+    <div *ngIf="visibility">{{residences.address}}</div>
+    <span *ngIf="visibility && residences.name===namer">{{residences.address}}</span>
+    <div [ngSwitch]="residences.status">
+        <li *ngSwitchCase="'Disponible'" style="color:green;">Disponible</li>
+        <li *ngSwitchCase="'vendu'" style="color:red">vendu</li>
+        <li *ngSwitchCase="'en construction'" style="color:yellow">en construction</li>
+    </div>
+    <button href="['/apartments/residence', residences.id]">View Apartments</button>
+    <button href="/add-apartment">Add Apartment</button>
+</div>
+
+
+
